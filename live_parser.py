@@ -48,10 +48,10 @@ while True:
 
     for cf in data:
         if cf['home'] == home and cf['guest'] == guest:
-            if cf['cf_home'] <= 1.3 or cf['cf_guest'] <= 1.3:
+            if float(cf['cf_home']) <= 1.3 or float(cf['cf_guest']) <= 1.3:
                 is_suitable = True
-                cf_home = cf['cf_home']
-                cf_guest = cf['cf_guest']
+                cf_home = float(cf['cf_home'])
+                cf_guest = float(cf['cf_guest'])
 
     if not is_suitable:
         print ("LOG: The game is not suitable")
@@ -89,10 +89,14 @@ while True:
     if cf_home < cf_guest:
         if p1_gst - p1_home >= 5:
             notify(name, home, guest, 'П1')
-            print ("LOG: " + home + ' is about to win!')
+            print ("RESULT: " + home + ' is about to win!')
+        else:
+        	print ('LOG: Condition is not satisfied')
     elif cf_guest < cf_home:
         if p1_home - p1_gst >= 5:
             notify(name, home, guest, 'П2')
             print ("LOG: " + guest + ' is about to win!')
-
+        else:
+        	print ('LOG: Condition is not satisfied')
+        	
     sleep(2100)

@@ -8,7 +8,7 @@ class Crawler:
 
     def __init__(self, url):
 
-        self.chromedriver = "/home/alex/code/hackathon/chromedriver"
+        self.chromedriver = "./chromedriver"
         self.options = Options()
         self.options.add_argument("--start-maximized")
         self.driver = webdriver.Chrome(executable_path=self.chromedriver,
